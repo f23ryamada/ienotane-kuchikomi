@@ -334,7 +334,7 @@ footer .thanks{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,25
     <div class="steps">
       <div class="step"><b>1</b><span>あてはまるものを<br>選ぶ</span></div>
       <div class="step"><b>2</b><span>文章が自動で<br>できあがる</span></div>
-      <div class="step"><b>3</b><span>そのまま<br>送信する</span></div>
+      <div class="step"><b>3</b><span>コピーして<br>貼り付ける</span></div>
     </div>
   </div>
 </section>
@@ -446,7 +446,7 @@ footer .thanks{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,25
       <div class="name-row">
         <label for="uname">お名前（任意）</label>
         <input type="text" id="uname" placeholder="例）山田 太郎" autocomplete="name">
-        <p class="name-note">社内での確認のためだけに使わせていただきます。できあがった文章には入りません。</p>
+        <p class="name-note">社内での確認のためだけに使わせていただきます。Googleマップの口コミ文には入りません。</p>
       </div>
 
       <button class="btn btn-send" id="sendBtn" disabled>
@@ -461,18 +461,32 @@ footer .thanks{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,25
       <div class="thanks-box">
         <p class="thanks-ttl">アンケートのご回答、ありがとうございました。</p>
         <p>いただいたお気持ちは、これから工務店をさがすご家族へのご案内づくりに、大切に使わせていただきます。<br>資料とあわせて、担当者よりあらためてご連絡いたします。</p>
+        <p>もしよろしければ、いま作った文章を<strong>Googleマップの口コミ</strong>としても残していただけませんか。これから工務店をさがす方の、大きな手がかりになります。</p>
       </div>
     </div>
 
-    <!-- 文章のコピー -->
+    <!-- 文章のコピーと、Googleマップへの投稿 -->
     <div class="btns">
       <button class="btn btn-copy" id="copyBtn" disabled>
         <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="9" y="9" width="11" height="11" rx="2" stroke="currentColor" stroke-width="2"/><path d="M5 15V5a2 2 0 012-2h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
         この文章をコピーする
       </button>
+      <a class="btn btn-go off" id="goBtn" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.5l6.1-.9L12 3z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+        Googleマップに投稿する
+      </a>
     </div>
-    <p class="copied" id="copied">コピーしました。手元に控えを残したいときにどうぞ。</p>
+    <p class="copied" id="copied">コピーしました。投稿画面で貼り付けてください。</p>
   </section>
+
+  <div class="howto" id="howto">
+    <h3>投稿のしかた（かんたん3ステップ）</h3>
+    <ol>
+      <li><strong>「この文章をコピーする」</strong>を押します。</li>
+      <li><strong>「Googleマップに投稿する」</strong>を押すと、口コミの入力画面が開きます。<br>（地図のページが開いたときは、<strong>「クチコミを書く」</strong>を押してください）</li>
+      <li>入力欄を長押しして<strong>「ペースト（貼り付け）」</strong>。星の数は率直な評価でお選びいただき、投稿してください。</li>
+    </ol>
+  </div>
 
   <!-- 特典を案内しない場合は、この <div class="gift"> ～ </div> ごと削除してください -->
   <div class="gift">
@@ -535,9 +549,9 @@ footer .thanks{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,25
   </div>
 
   <div class="disclaimer">
-    <strong>アンケートへのご協力は、あくまで任意のお願いです。</strong><br>
-    ご回答いただかない場合でも、その後のご相談やお付き合いに影響することはございませんので、どうぞご安心ください。お礼の品も、ご回答の有無にかかわらずお渡しできます。<br>
-    文章はご自身のお気持ちに合うよう、自由に書き換えてお送りください。<br><br>
+    <strong>アンケートへのご協力も、Googleマップへの投稿も、あくまで任意のお願いです。</strong><br>
+    ご回答・ご投稿いただかない場合でも、その後のご相談やお付き合いに影響することはございませんので、どうぞご安心ください。お礼の品はアンケートへご回答いただいたことに対するもので、投稿の有無・内容とは一切関係ありません。<br>
+    文章はご自身のお気持ちに合うよう、自由に書き換えてお送り・ご投稿ください。<br><br>
     <strong>いただいた回答の取り扱いについて</strong><br>
     ご回答いただいた内容は、ベストハウスネクスト株式会社が受け取り、家づくりのサービス向上と、今後のご案内づくりのために大切に使わせていただきます。お名前を含む個人情報を、ご本人の同意なく第三者へ提供することはありません。<br>
     ホームページやチラシなどで文章を紹介させていただく場合は、事前に必ずご本人へご連絡し、ご承諾をいただいたうえで掲載いたします。
@@ -565,6 +579,17 @@ footer .thanks{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,25
 </div>
 
 <script>
+/* ===================================================================
+   ▼設定：Googleマップの口コミ投稿リンク
+   いまは「ベストハウスネクスト（いえのたね）」のGoogleマップ上の場所を
+   直接ひらくリンクが入っています（口コミ入力を開く指定つき）。
+   より確実なのは、Googleビジネスプロフィールの管理画面 →「口コミを増やす」で
+   発行される短縮リンク（https://g.page/r/XXXXXXXX/review）です。
+   入手できたら、下の REVIEW_URL をその1本に差し替えてください。
+   =================================================================== */
+const REVIEW_URL =
+  "https://www.google.com/maps/place//data=!4m3!3m2!1s0x60016e25993608e9:0xf47ea0f33402c194!12e1";
+
 /* ===================================================================
    ▼設定：アンケートの送信先（Googleフォーム）
    ① Googleフォームを作る（質問はすべて「段落」形式で7問）
@@ -595,6 +620,7 @@ const preview = $("#preview");
 const countEl = $("#count");
 const copyBtn = $("#copyBtn");
 const barBtn  = $("#barBtn");
+const goBtn   = $("#goBtn");
 const barCount= $("#barCount");
 const copied  = $("#copied");
 const sendBtn = $("#sendBtn");
@@ -769,6 +795,8 @@ function render(){
   const ready = n > 0;
   if (!sending) sendBtn.disabled = !ready;
   copyBtn.disabled = !ready;
+  goBtn.classList.toggle("off", !ready);
+  goBtn.href = ready ? REVIEW_URL : "#";
   barCount.textContent = ready ? ("いま " + n + " 文字ぶんの声が集まりました") : "まずは Q1 から";
 }
 
@@ -809,6 +837,7 @@ function showThanks(){
   sendNote.classList.remove("err");
   sendNote.textContent = "送信しました。ありがとうございました。";
   $("#thanksArea").hidden = false;
+  goBtn.href = REVIEW_URL;
   $("#thanksArea").scrollIntoView({behavior:"smooth", block:"center"});
 }
 
